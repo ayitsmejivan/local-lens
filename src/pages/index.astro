@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Local Lens Nepal – Explore Through Locals">
+  <!-- Hero with Parallax + Glass -->
+  <section class="relative bg-fixed bg-center bg-cover h-screen flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?nepal,himalaya');">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+    <div class="relative z-10 text-center px-6 max-w-3xl backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 shadow-lg" data-aos="fade-up">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4">See Nepal <span class="text-yellow-400">Through Local Eyes</span></h1>
+      <p class="text-lg md:text-xl text-gray-100 mb-6">Journey through culture, cuisine, and community — beyond the tourist path.</p>
+      <a href="/experiences" class="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition">Explore Experiences</a>
+    </div>
+  </section>
+
+  <!-- Curved Section with Gradient Background -->
+  <section class="relative bg-gradient-to-r from-yellow-100 to-yellow-50 py-20 rounded-t-[6rem] -mt-24 px-6">
+    <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-down">Top Destinations</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto" data-aos="fade-up">
+      {[
+        { name: 'Kathmandu', image: 'https://source.unsplash.com/400x300/?kathmandu,temple' },
+        { name: 'Pokhara', image: 'https://source.unsplash.com/400x300/?pokhara,lake' },
+        { name: 'Chitwan', image: 'https://source.unsplash.com/400x300/?chitwan,jungle' }
+      ].map(dest => (
+        <div class="rounded-xl overflow-hidden shadow-xl bg-white transform hover:-translate-y-2 transition">
+          <img src={dest.image} alt={dest.name} class="w-full h-48 object-cover" />
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold">{dest.name}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Animated Host Cards -->
+  <section class="py-20 bg-white px-6">
+    <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-down">Featured Hosts</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto" data-aos="fade-up">
+      {[
+        { name: 'Sita from Kathmandu', desc: 'Cultural walks & momo cooking.', img: 'https://source.unsplash.com/100x100/?woman,nepal' },
+        { name: 'Raj from Pokhara', desc: 'Mountain hikes & local stories.', img: 'https://source.unsplash.com/100x100/?man,nepal' },
+        { name: 'Asha from Chitwan', desc: 'Jungle safaris & Tharu dances.', img: 'https://source.unsplash.com/100x100/?nepal,village' }
+      ].map(host => (
+        <div class="bg-gradient-to-br from-white to-yellow-50 p-6 rounded-3xl shadow-xl text-center hover:scale-105 transition">
+          <img src={host.img} class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-yellow-400" />
+          <h3 class="text-lg font-semibold">{host.name}</h3>
+          <p class="text-gray-600 text-sm mt-2">{host.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Testimonials with Quote Design -->
+  <section class="py-20 bg-gray-50 px-6">
+    <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-down">What Travelers Say</h2>
+    <div class="max-w-4xl mx-auto space-y-10" data-aos="fade-up">
+      {[
+        { name: 'Emily from USA', quote: 'This wasn’t a tour. It was a connection. Sita’s stories touched my heart.' },
+        { name: 'Leo from Germany', quote: 'Nepal came alive through Raj. Real culture, real people — unforgettable.' }
+      ].map(t => (
+        <div class="bg-white p-8 rounded-3xl shadow-md border-l-4 border-yellow-400">
+          <p class="italic text-lg text-gray-700 mb-4">“{t.quote}”</p>
+          <p class="font-semibold text-right">— {t.name}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Manifesto Parallax -->
+  <section class="relative h-[60vh] bg-fixed bg-center bg-cover flex items-center justify-center text-white text-center px-6" style="background-image: url('https://source.unsplash.com/1600x900/?nepal,people');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 max-w-3xl" data-aos="zoom-in">
+      <h2 class="text-4xl font-bold mb-4">Our Manifesto</h2>
+      <p class="text-lg">We believe the best way to explore Nepal is through the people who call it home. Every smile, every trail, every story — shared with purpose and pride.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-black text-white text-center px-6">
+    <h2 class="text-4xl font-bold mb-4" data-aos="fade-up">Ready to Begin Your Journey?</h2>
+    <p class="mb-6 text-lg text-gray-200" data-aos="fade-up">Join our local hosts or start exploring real Nepal today.</p>
+    <a href="/host" class="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition" data-aos="fade-up">Join as Host</a>
+  </section>
+</Layout>
